@@ -1,0 +1,10 @@
+[flake8]
+ignore = E203, E266, E501, W503, D105
+max-line-length = 80
+max-complexity = 18
+select = B,C,E,F,W,T4,B9,D
+docstring-convention = pep257
+per-file-ignores = 
+    */tests/*: D
+    */migrations/*: D
+    conftest.py: D

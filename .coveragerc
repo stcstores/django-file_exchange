@@ -1,0 +1,8 @@
+[run]
+branch = True
+omit =
+  *apps.py,
+  *migrations/*,
+  *settings*,
+  *tests/*,
+  *urls.py,

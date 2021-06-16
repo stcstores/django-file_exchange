@@ -1,0 +1,28 @@
+DEBUG = true
+ALLOWED_HOSTS = ["*"]
+
+TEST_ADMINS = []
+ADMINS = []
+
+EMAIL_HOST = "email.host.com"
+EMAIL_HOST_USER = "user@email.host.com"
+EMAIL_HOST_PASSWORD = "EMAIL_PASSWORD"
+EMAIL_PORT = "587"
+EMAIL_USE_TLS = true
+
+CC_DOMAIN_SECRET = "cc_domain.cloud_commerce_pro.com"
+CC_USERNAME_SECRET = "CC_USERNAME"
+CC_PASS = "CC_PASSWORD"
+
+SCAYT_CUSTOMER_ID_TOKEN = "SCAYT_TOKEN"
+
+DATABASE_HOST = "localhost"
+DATABASE_NAME = "stcadmin"
+DATABASE_USER = "postgres"
+DATABASE_PASSWORD = "postgres"
+DATABASE_PORT = "5432"
+TEST_DATABASE_NAME = "stcadmin_test"
+
+CC_IMAGE_URL = "https://images.testserver.com/"
+
+CELERY_BROKER_URL = "amqp://localhost//"
