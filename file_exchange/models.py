@@ -69,4 +69,6 @@ class FileDownload(BaseFileExchangeModel):
     @classmethod
     def generate_file(cls):
         """Return the file to be downloaded."""
-        raise NotImplementedError("Override...")
+        raise NotImplementedError(
+            "Override this method to return a file to download." ""
+        )
