@@ -36,9 +36,9 @@ class BaseFileExchangeModel(models.Model):
     ERRORED = ERRORED
 
     STATUSES = (
-        ("In Progress", IN_PROGRESS),
-        ("Complete", COMPLETE),
-        ("Errored", ERRORED),
+        (IN_PROGRESS, "In Progress"),
+        (COMPLETE, "Complete"),
+        (ERRORED, "Errored"),
     )
 
     status = models.CharField(
