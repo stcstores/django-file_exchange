@@ -2,6 +2,7 @@
 
 from celery import shared_task
 from django.apps import apps
+from django.db import transaction
 from django.utils import timezone
 
 
@@ -11,7 +12,12 @@ def create_file_download(app_label, model_name, instance_id):
     model = apps.get_model(app_label, model_name)
     download_instance = model.objects.get(id=instance_id)
     try:
-        download_instance.download_file = model.generate_file()
+        with transaction.atomic():
+            download_instance.pre_generation()
+        with transaction.atomic():
+            download_instance.download_file = download_instance.generate_file()
+        with transaction.atomic():
+            download_instance.post_generation()
     except Exception as e:
         download_instance.status = download_instance.ERRORED
         download_instance.completed_at = timezone.now()

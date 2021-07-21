@@ -1,13 +1,18 @@
 import datetime
+from unittest.mock import patch
 
 import pytest
 
 from file_exchange import models
 
+from .testapp import models as testapp_models
 
-def test_FileDownload_generate_file_method_raises_not_implemented():
+
+def test_FileDownload_generate_file_method_raises_not_implemented(
+    unextended_file_download_instance,
+):
     with pytest.raises(NotImplementedError):
-        models.FileDownload.generate_file()
+        unextended_file_download_instance.generate_file()
 
 
 def test_file_download_instance_has_IN_PROGRESS_attribute(
@@ -129,3 +134,29 @@ def test_file_creation_error_sets_completed_at(
         file_download_instance_with_errored_file_creation.completed_at,
         datetime.datetime,
     )
+
+
+def test_pre_generation_method_is_called(celery_session_worker):
+    with patch(
+        "file_exchange.tests.testapp.models.FileDownloadWithPreGenerationMethod.pre_generation"
+    ):
+        (
+            task,
+            instance,
+        ) = testapp_models.FileDownloadWithPreGenerationMethod.objects.create_download()
+        task.get()
+        assert instance.pre_generation.called_once()
+
+
+def test_post_generation_method_is_called(celery_session_worker):
+    with patch(
+        "file_exchange.tests.testapp.models.FileDownloadWithPostGenerationMethod.post_generation"
+    ):
+        (
+            task,
+            instance,
+        ) = (
+            testapp_models.FileDownloadWithPostGenerationMethod.objects.create_download()
+        )
+        task.get()
+        assert instance.post_generation.called_once()

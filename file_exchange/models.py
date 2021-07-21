@@ -17,9 +17,9 @@ class BaseFileExchangeManager(models.Manager):
 class FileDownloadManager(BaseFileExchangeManager):
     """Model Manager for file download models."""
 
-    def create_download(self):
+    def create_download(self, *args, **kwargs):
         """Create a missing information export."""
-        instance = self.create()
+        instance = self.create(*args, **kwargs)
         task = tasks.create_file_download.delay(
             app_label=self.model._meta.app_label,
             model_name=self.model._meta.model_name,
@@ -66,8 +66,15 @@ class FileDownload(BaseFileExchangeModel):
 
         abstract = True
 
-    @classmethod
-    def generate_file(cls):
+    def pre_generation(self):
+        """Override this method to run operations before the file generation task."""
+        pass
+
+    def post_generation(self):
+        """Override this method to run operations after the file generation task."""
+        pass
+
+    def generate_file(self):
         """Return the file to be downloaded."""
         raise NotImplementedError(
             "Override this method to return a file to download." ""

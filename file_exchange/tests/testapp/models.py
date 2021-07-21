@@ -12,14 +12,28 @@ class ExtendedFileDownload(FileDownload):
     name = models.CharField(max_length=10)
     download_file = models.FileField(blank=True, null=True)
 
-    @classmethod
-    def generate_file(cls):
+    def generate_file(self):
         return SimpleUploadedFile(name="test_file.txt", content=b"Hello, World!")
 
 
 class FileDownloadWithFileCreationError(FileDownload):
     download_file = models.FileField(blank=True, null=True)
 
-    @classmethod
-    def generate_file(cls):
+    def generate_file(self):
         raise Exception("TEST EXCEPTION")
+
+
+class FileDownloadWithPreGenerationMethod(FileDownload):
+    def generate_file(self):
+        return SimpleUploadedFile(name="test_file.txt", content=b"Hello, World!")
+
+    def pre_generation(self):
+        pass
+
+
+class FileDownloadWithPostGenerationMethod(FileDownload):
+    def generate_file(self):
+        return SimpleUploadedFile(name="test_file.txt", content=b"Hello, World!")
+
+    def post_generation(self):
+        pass

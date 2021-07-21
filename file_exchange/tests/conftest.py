@@ -54,3 +54,13 @@ def file_download_instance_with_errored_file_creation(
     task.get()
     instance.refresh_from_db()
     return instance
+
+
+@pytest.fixture
+def file_download_instance_with_pre_generation_model():
+    return models.FileDownloadWithPreGenerationMethod
+
+
+@pytest.fixture
+def file_download_instance_with_post_generation_model():
+    return models.FileDownloadWithPostGenerationMethod
