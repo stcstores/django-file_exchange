@@ -548,7 +548,7 @@ testing = ["fields", "hunter", "process-tests", "six", "pytest-xdist", "virtuale
 
 [[package]]
 name = "pytest-djangoapp"
-version = "0.15.1"
+version = "0.15.2"
 description = "Nice pytest plugin to help you with Django pluggable application testing."
 category = "dev"
 optional = false
@@ -924,8 +924,8 @@ pytest-cov = [
     {file = "pytest_cov-2.12.1-py2.py3-none-any.whl", hash = "sha256:261bb9e47e65bd099c89c3edf92972865210c36813f80ede5277dceb77a4a62a"},
 ]
 pytest-djangoapp = [
-    {file = "pytest-djangoapp-0.15.1.tar.gz", hash = "sha256:ed10b80ca3bf4c7eb55be209c438582ca6599691d58643d75a5f6f1e7170b149"},
-    {file = "pytest_djangoapp-0.15.1-py2.py3-none-any.whl", hash = "sha256:de416cfef01c3cf8e4e9d42653c0b7b23e33844a5684522e7958b892bb9616a9"},
+    {file = "pytest-djangoapp-0.15.2.tar.gz", hash = "sha256:feebdfbed7d919df2b5050c0b40205dfd7896d0d106c378f1111343a5d6f8066"},
+    {file = "pytest_djangoapp-0.15.2-py2.py3-none-any.whl", hash = "sha256:fa7ba44a160e5ef92df93fd4ac5d87e70e29c8ddc68d5ea16a15bfa059318758"},
 ]
 pytest-factoryboy = [
     {file = "pytest-factoryboy-2.1.0.tar.gz", hash = "sha256:23bc562ab32cc39eddfbbbf70e618a1b30e834a4cfa451c4bedc36216f0a7b19"},
