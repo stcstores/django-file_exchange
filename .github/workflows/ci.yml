@@ -35,8 +35,7 @@ jobs:
       - name: Test with pytest
         run: |
           pytest -sv
-      - name: Coveralls
-        uses: AndreMiras/coveralls-python-action@develop
+      - name: Push to Coveralls
+        uses: AndreMiras/coveralls-python-action@master
         with:
-          parallel: true
-          flag-name: Unit Test
+          github-token: ${{ github.token }}
