@@ -1,4 +1,7 @@
 """Models for the File Exchange app."""
+from typing import Any, Tuple
+
+import celery
 from django.db import models
 
 from file_exchange import tasks
@@ -17,7 +20,9 @@ class BaseFileExchangeManager(models.Manager):
 class FileDownloadManager(BaseFileExchangeManager):
     """Model Manager for file download models."""
 
-    def create_download(self, *args, **kwargs):
+    def create_download(
+        self, *args: Any, **kwargs: Any
+    ) -> Tuple[celery.Task, models.Model]:
         """Create a missing information export."""
         instance = self.create(*args, **kwargs)
         task = tasks.create_file_download.delay(
@@ -66,21 +71,21 @@ class FileDownload(BaseFileExchangeModel):
 
         abstract = True
 
-    def pre_generation(self):
+    def pre_generation(self) -> None:
         """Override this method to run operations before the file generation task."""
         pass
 
-    def post_generation(self):
+    def post_generation(self) -> None:
         """Override this method to run operations after the file generation task."""
         pass
 
-    def generate_file(self):
+    def generate_file(self) -> None:
         """Return the file to be downloaded."""
         raise NotImplementedError(
             "Override this method to return a file to download." ""
         )
 
-    def get_download_link(self):
+    def get_download_link(self) -> None:
         """Return the URL of the generated file."""
         raise NotImplementedError(
             "Override this method to return the URL of the instance's download file"

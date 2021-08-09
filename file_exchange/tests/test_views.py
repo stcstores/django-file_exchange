@@ -2,9 +2,9 @@ import datetime as dt
 
 import pytest
 
-from file_exchange import models
+from file_exchange import models, views
 
-from .testapp import views
+from .testapp import views as testapp_views
 
 
 @pytest.fixture
@@ -155,11 +155,16 @@ def test_file_download_page_contains_status_url(
     file_download_page_view_response_content,
 ):
     text = file_download_page_view_response_content
-    assert views.ExtendedDownloadFileView.status_url in text
+    assert testapp_views.ExtendedDownloadFileView.status_url in text
 
 
 def test_file_download_page_contains_created_file_url(
     file_download_page_view_response_content,
 ):
     text = file_download_page_view_response_content
-    assert views.ExtendedDownloadFileView.create_file_url in text
+    assert testapp_views.ExtendedDownloadFileView.create_file_url in text
+
+
+def test_base_FileDownloadStatusView_requires_model():
+    with pytest.raises(ValueError):
+        views.FileDownloadStatusView().get_context_data()
