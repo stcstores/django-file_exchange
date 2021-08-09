@@ -6,8 +6,8 @@ from django.db import transaction
 from django.utils import timezone
 
 
-@shared_task
-def create_file_download(app_label, model_name, instance_id):
+@shared_task  # type: ignore
+def create_file_download(app_label: str, model_name: str, instance_id: int) -> None:
     """Task for creating file downloads."""
     model = apps.get_model(app_label, model_name)
     download_instance = model.objects.get(id=instance_id)

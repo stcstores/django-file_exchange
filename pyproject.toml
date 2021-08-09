@@ -23,6 +23,9 @@ pytest-factoryboy = "^2.1.0"
 pytest-celery = "^0.0.0"
 pytest-djangoapp = "^0.15.1"
 flake8-docstrings = "^1.6.0"
+mypy = "^0.910"
+django-stubs = "^1.8.0"
+celery-types = "^0.8.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

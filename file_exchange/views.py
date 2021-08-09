@@ -1,5 +1,8 @@
 """Base views for the file_exchange app."""
 
+from typing import Any, Dict, Optional
+
+from django.db.models import Model
 from django.views.generic import TemplateView
 
 
@@ -11,7 +14,7 @@ class DownloadFileView(TemplateView):
     status_url = ""
     create_file_url = ""
 
-    def get_context_data(self, **kwargs):
+    def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
         """Return context for the view."""
         context = super().get_context_data(**kwargs)
         context["status_url"] = self.status_url
@@ -22,11 +25,13 @@ class DownloadFileView(TemplateView):
 class FileDownloadStatusView(TemplateView):
     """View for retrieving the status of a file download."""
 
-    model = None
+    model: Optional[Model] = None
     template_name = "file_exchange/download_status_display.html"
 
-    def get_context_data(self, **kwargs):
+    def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
         """Return context for the view."""
+        if self.model is None:
+            raise ValueError("The views model attribute must be set.")
         context = super().get_context_data(**kwargs)
         try:
             context["download_instance"] = self.model.objects.latest("created_at")
