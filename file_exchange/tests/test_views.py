@@ -4,6 +4,8 @@ import pytest
 
 from file_exchange import models
 
+from .testapp import views
+
 
 @pytest.fixture
 def in_progress_file_download(extended_file_download_factory):
@@ -50,9 +52,7 @@ def file_download_status_response_with_in_progress_download(
     request_client, in_progress_file_download
 ):
     client = request_client(ajax=True)
-    response = client.get(
-        ("file_download_status", {"pk": in_progress_file_download.pk}), ajax=True
-    )
+    response = client.get(("file_download_status", {}), ajax=True)
     return response
 
 
@@ -63,7 +63,6 @@ def file_download_status_response_with_in_progress_download_content(
     response_text = (
         file_download_status_response_with_in_progress_download.content.decode("utf-8")
     )
-    print(response_text)
     return response_text
 
 
@@ -72,13 +71,7 @@ def file_download_status_response_with_complete_download(
     request_client, complete_file_download
 ):
     client = request_client(ajax=True)
-    response = client.get(
-        (
-            "file_download_status",
-            {"pk": complete_file_download.pk},
-        ),
-        ajax=True,
-    )
+    response = client.get(("file_download_status", {}), ajax=True)
     return response
 
 
@@ -87,6 +80,22 @@ def file_download_status_response_with_complete_download_content(
     file_download_status_response_with_complete_download,
 ):
     return file_download_status_response_with_complete_download.content.decode("utf-8")
+
+
+@pytest.fixture
+def file_download_status_response_with_no_existant_download(request_client):
+    client = request_client(ajax=True)
+    response = client.get(("file_download_status", {}), ajax=True)
+    return response
+
+
+@pytest.fixture
+def file_download_status_response_with_no_existant_download_content(
+    file_download_status_response_with_no_existant_download,
+):
+    return file_download_status_response_with_no_existant_download.content.decode(
+        "utf-8"
+    )
 
 
 def test_in_progress_file_download_status_view_shows_status(
@@ -121,3 +130,36 @@ def test_complete_file_download_status_view_shows_created_at(
     date = in_progress_file_download.created_at
     date_string = date.strftime("%Y-%m-%d %H:%M")
     assert date_string in file_download_status_response_with_complete_download_content
+
+
+def test_download_status_with_no_existant_download(
+    file_download_status_response_with_no_existant_download_content,
+):
+    text = file_download_status_response_with_no_existant_download_content
+    assert "<p>NO DOWNLOAD HAS BEEN CREATED</p>" in text
+
+
+@pytest.fixture
+def file_download_page_view_response(request_client):
+    client = request_client(ajax=True)
+    response = client.get(("file_download_page", {}), ajax=True)
+    return response
+
+
+@pytest.fixture
+def file_download_page_view_response_content(file_download_page_view_response):
+    return file_download_page_view_response.content.decode("utf8")
+
+
+def test_file_download_page_contains_status_url(
+    file_download_page_view_response_content,
+):
+    text = file_download_page_view_response_content
+    assert views.ExtendedDownloadFileView.status_url in text
+
+
+def test_file_download_page_contains_created_file_url(
+    file_download_page_view_response_content,
+):
+    text = file_download_page_view_response_content
+    assert views.ExtendedDownloadFileView.create_file_url in text

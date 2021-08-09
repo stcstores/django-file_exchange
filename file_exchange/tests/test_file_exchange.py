@@ -15,6 +15,13 @@ def test_FileDownload_generate_file_method_raises_not_implemented(
         unextended_file_download_instance.generate_file()
 
 
+def test_get_download_link_raises_not_implemented(
+    unextended_file_download_instance,
+):
+    with pytest.raises(NotImplementedError):
+        unextended_file_download_instance.get_download_link()
+
+
 def test_file_download_instance_has_IN_PROGRESS_attribute(
     extended_file_download_instance,
 ):
