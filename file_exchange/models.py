@@ -79,3 +79,9 @@ class FileDownload(BaseFileExchangeModel):
         raise NotImplementedError(
             "Override this method to return a file to download." ""
         )
+
+    def get_download_link(self):
+        """Return the URL of the generated file."""
+        raise NotImplementedError(
+            "Override this method to return the URL of the instance's download file"
+        )

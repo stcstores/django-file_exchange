@@ -1,11 +1,20 @@
-{% load file_exchange_extras %}
-
-<div class="file-exchange file-exchange-status"></div>
-
-{{ download_instance }}
-
-{% file_exchange_status download_instance%}
-
-{% file_exchange_created_at download_instance %}
-
+<div class="file-exchange file-exchange-status">
+    LOADING
 </div>
+
+<script>
+    function update_file_status() {
+        $.get("{{ status_url }}", function (response) {
+            $(".file-exchange-status").html(response);
+            $(".create_new_file_button").click(function () {
+                $(this).prop('disabled', true);
+                $.get("{{ create_file_url }}");
+            });
+        });
+    }
+
+    update_file_status();
+    setInterval(function () {
+        update_file_status();
+    }, 5000);
+</script>

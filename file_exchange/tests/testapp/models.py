@@ -15,6 +15,12 @@ class ExtendedFileDownload(FileDownload):
     def generate_file(self):
         return SimpleUploadedFile(name="test_file.txt", content=b"Hello, World!")
 
+    def get_download_link(self):
+        if self.download_file:
+            return self.download_file.url
+        else:
+            return ""
+
 
 class FileDownloadWithFileCreationError(FileDownload):
     download_file = models.FileField(blank=True, null=True)

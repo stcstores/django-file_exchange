@@ -1,0 +1,11 @@
+{% load file_exchange_extras %}
+
+{% file_exchange_status download_instance %}<br>
+
+{% file_exchange_created_at download_instance %}<br>
+
+{% if download_instance.status != download_instance.IN_PROGRESS %}
+<a href="{{ download_instance.get_download_link }}"><button>Download</button></a><br>
+<button class="create_new_file_button">Create New File</button><br>
+
+{% endif %}

@@ -60,9 +60,11 @@ def file_download_status_response_with_in_progress_download(
 def file_download_status_response_with_in_progress_download_content(
     file_download_status_response_with_in_progress_download,
 ):
-    return file_download_status_response_with_in_progress_download.content.decode(
-        "utf-8"
+    response_text = (
+        file_download_status_response_with_in_progress_download.content.decode("utf-8")
     )
+    print(response_text)
+    return response_text
 
 
 @pytest.fixture
