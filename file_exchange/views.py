@@ -28,5 +28,8 @@ class FileDownloadStatusView(TemplateView):
     def get_context_data(self, **kwargs):
         """Return context for the view."""
         context = super().get_context_data(**kwargs)
-        context["download_instance"] = self.model.objects.latest("created_at")
+        try:
+            context["download_instance"] = self.model.objects.latest("created_at")
+        except self.model.DoesNotExist:
+            context["download_instance"] = None
         return context
