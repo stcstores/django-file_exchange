@@ -24,11 +24,11 @@ class FileDownloadManager(BaseFileExchangeManager):
         self, *args: Any, **kwargs: Any
     ) -> Tuple[celery.Task, models.Model]:
         """Create a missing information export."""
-        instance = self.create(*args, **kwargs)
+        instance: FileDownload = self.create(*args, **kwargs)
         task = tasks.create_file_download.delay(
             app_label=self.model._meta.app_label,
             model_name=self.model._meta.model_name,
-            instance_id=instance.id,
+            instance_id=instance.pk,
         )
         return task, instance
 
@@ -51,6 +51,9 @@ class BaseFileExchangeModel(models.Model):
         choices=STATUSES,
         default=IN_PROGRESS,
     )
+
+    download_file_field_name = "download_file"
+
     created_at = models.DateTimeField(auto_now_add=True)
     completed_at = models.DateTimeField(blank=True, null=True)
     error_message = models.TextField(blank=True)
@@ -79,7 +82,7 @@ class FileDownload(BaseFileExchangeModel):
         """Override this method to run operations after the file generation task."""
         pass
 
-    def generate_file(self) -> None:
+    def generate_file(self) -> Any:
         """Return the file to be downloaded."""
         raise NotImplementedError(
             "Override this method to return a file to download." ""
