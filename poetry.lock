@@ -130,7 +130,7 @@ zstd = ["zstandard"]
 
 [[package]]
 name = "celery-types"
-version = "0.8.0"
+version = "0.8.1"
 description = "Type stubs for Celery and its related packages"
 category = "dev"
 optional = false
@@ -828,8 +828,8 @@ celery = [
     {file = "celery-5.1.2.tar.gz", hash = "sha256:8d9a3de9162965e97f8e8cc584c67aad83b3f7a267584fa47701ed11c3e0d4b0"},
 ]
 celery-types = [
-    {file = "celery-types-0.8.0.tar.gz", hash = "sha256:cdde58f5db33c0067b4afe5b4adb19738c471f6e87fca147596b2c1509b1a7c4"},
-    {file = "celery_types-0.8.0-py3-none-any.whl", hash = "sha256:88f9ca08f3f776862ee76e4c8931e53ecffd0666fdc821805e4ec358e49dde00"},
+    {file = "celery-types-0.8.1.tar.gz", hash = "sha256:97587fe6af6fcff582b1f12a1f67f331a398c7785696cb31c092451066f3503e"},
+    {file = "celery_types-0.8.1-py3-none-any.whl", hash = "sha256:e584ac50d291a5cce25adced7076010ab0f4c7eee7500afeda7bd0419adfbb16"},
 ]
 certifi = [
     {file = "certifi-2021.5.30-py2.py3-none-any.whl", hash = "sha256:50b1e4f8446b06f41be7dd6338db18e0990601dce795c2b1686458aa7e8fa7d8"},
