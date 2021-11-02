@@ -1,10 +1,11 @@
 version: 2
 updates:
   - package-ecosystem: pip
+    insecure-external-code-execution: allow
     directory: "/"
     schedule:
       interval: daily
     open-pull-requests-limit: 10
     assignees:
       - lukeshiner
-    versioning-strategy: lockfile-only
+    versioning-strategy: auto
