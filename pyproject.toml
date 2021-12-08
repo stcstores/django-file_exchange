@@ -6,12 +6,13 @@ authors = ["Luke Shiner <luke@lukeshiner.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = ">=3.7,<4.0"
 Django = "^3.2.4"
 celery = "^5.2.1"
 django-celery-results = "^2.1.0"
 
 [tool.poetry.dev-dependencies]
+tox = "^3.24.4"
 black = "^21.12b0"
 pytest = "^6.2.4"
 isort = "^5.10.1"
