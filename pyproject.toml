@@ -12,7 +12,7 @@ celery = "^5.2.2"
 django-celery-results = "^2.1.0"
 
 [tool.poetry.dev-dependencies]
-tox = "^3.24.4"
+tox = "^3.24.5"
 black = "^21.12b0"
 pytest = "^6.2.4"
 isort = "^5.10.1"
