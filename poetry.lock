@@ -156,7 +156,7 @@ zstd = ["zstandard"]
 
 [[package]]
 name = "celery-types"
-version = "0.9.3"
+version = "0.10.0"
 description = "Type stubs for Celery and its related packages"
 category = "dev"
 optional = false
@@ -936,7 +936,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytes
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.7,<4.0"
-content-hash = "e50b44e9a4f7a9e64f05bd646c6621c8a2de94d05f870caefc93eea4d5c80006"
+content-hash = "85ef2be2a24e38031063e264667c4fc5718b408988066b7a20c406488a854516"
 
 [metadata.files]
 amqp = [
@@ -976,8 +976,8 @@ celery = [
     {file = "celery-5.2.2.tar.gz", hash = "sha256:2844eb040e915398623a43253a8e1016723442ece6b0751a3c416d8a2b34216f"},
 ]
 celery-types = [
-    {file = "celery-types-0.9.3.tar.gz", hash = "sha256:534f1e60abb277b0287c1731acd0110c18b51ba0dcb93ddb3c401949dff70010"},
-    {file = "celery_types-0.9.3-py3-none-any.whl", hash = "sha256:d666647b13ab06217373b5d2a302c8b58f61bdf809bfaf904c63b16c3d363f59"},
+    {file = "celery-types-0.10.0.tar.gz", hash = "sha256:8ddbdc346abdb1d08befb7ebddb673a46a65032d52f1d8b09b94c3713546d387"},
+    {file = "celery_types-0.10.0-py3-none-any.whl", hash = "sha256:35616e5ef946dce89853750ec9a94e883248801996f5d91b1fc8d8de0b715bd0"},
 ]
 certifi = [
     {file = "certifi-2021.10.8-py2.py3-none-any.whl", hash = "sha256:d62a0163eb4c2344ac042ab2bdf75399a71a2d8c7d47eac2e2ee91b9d6339569"},
