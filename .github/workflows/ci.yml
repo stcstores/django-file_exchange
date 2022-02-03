@@ -8,11 +8,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: [3.7, 3.8, 3.9, 3.10.0]
-        django-version: ["Django>=2,<3", "Django>=3,<4", "Django>=4,<5"]
-        exclude:
-          - python-version: 3.7
-            django-version: "Django>=4,<5"
+        python-version: [3.10.0]
 
     steps:
       - uses: actions/checkout@v2
@@ -25,11 +21,6 @@ jobs:
           pip install poetry
           poetry config virtualenvs.create false
           poetry install
-      - name: Install Django
-        env:
-          DJANGO_VERSION: ${{ matrix.django-version }}
-        shell: bash
-        run: pip install $DJANGO_VERSION
       - name: Type check with mypy
         run: mypy .
       - name: Lint with flake8

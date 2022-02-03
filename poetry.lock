@@ -874,8 +874,8 @@ python-versions = "*"
 
 [metadata]
 lock-version = "1.1"
-python-versions = ">3.8,<4"
-content-hash = "86fa5dcfca9686f245d5c4c1617552b5de01226a78468285c0cc45358036b1d6"
+python-versions = ">=3.8,<4.0"
+content-hash = "17ce8bb6ae7db3728a4978b78c874ed327d5ac8b7bf401399c41267186d266c1"
 
 [metadata.files]
 amqp = [
