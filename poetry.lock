@@ -708,7 +708,7 @@ pytest = "*"
 
 [[package]]
 name = "pytest-factoryboy"
-version = "2.2.0"
+version = "2.2.1"
 description = "Factory Boy support for pytest."
 category = "dev"
 optional = false
@@ -1330,8 +1330,8 @@ pytest-djangoapp = [
     {file = "pytest_djangoapp-0.15.2-py2.py3-none-any.whl", hash = "sha256:fa7ba44a160e5ef92df93fd4ac5d87e70e29c8ddc68d5ea16a15bfa059318758"},
 ]
 pytest-factoryboy = [
-    {file = "pytest-factoryboy-2.2.0.tar.gz", hash = "sha256:546d02a76bb1d2748cd9b352f13e2748c25aad8b9b13d2609a904abc7ce947d1"},
-    {file = "pytest_factoryboy-2.2.0-py3-none-any.whl", hash = "sha256:f8708963d59267ecc675cc6889d5d612c4bac0fb8d050d5861e872336365d82d"},
+    {file = "pytest-factoryboy-2.2.1.tar.gz", hash = "sha256:fc7dd2be0bd0c7557be2b28464265cdc3ec2feacc0f38ccef8f45ecb8cc054ad"},
+    {file = "pytest_factoryboy-2.2.1-py3-none-any.whl", hash = "sha256:f8bfffc4c95585fa18637f1a31878791c9e17da4556d19febfba769fda400e57"},
 ]
 python-dateutil = [
     {file = "python-dateutil-2.8.2.tar.gz", hash = "sha256:0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"},
