@@ -1,7 +1,7 @@
 """Models for the File Exchange app."""
 from typing import Any, Tuple
 
-import celery
+from celery.result import AsyncResult
 from django.db import models
 
 from file_exchange import tasks
@@ -22,7 +22,7 @@ class FileDownloadManager(BaseFileExchangeManager):
 
     def create_download(
         self, *args: Any, **kwargs: Any
-    ) -> Tuple[celery.Task, models.Model]:
+    ) -> Tuple[AsyncResult, models.Model]:
         """Create a missing information export."""
         instance: FileDownload = self.create(*args, **kwargs)
         task = tasks.create_file_download.delay(
