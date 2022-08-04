@@ -9,7 +9,6 @@ license = "MIT"
 python = ">=3.8,<4.0"
 Django = ">=4.0"
 celery = ">=5.2.3"
-django-celery-results = ">=2.1.0"
 
 [tool.poetry.dev-dependencies]
 tox = ">=3.24.5"
