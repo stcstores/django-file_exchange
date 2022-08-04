@@ -10,4 +10,5 @@ pytest_plugins = configure_djangoapp_plugin(
     extend_INSTALLED_APPS=[
         "django_celery_results",
     ],
+    migrate=True,
 )
