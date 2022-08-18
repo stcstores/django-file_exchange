@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "file_exchange"
-version = "0.1.0"
+version = "0.1.1"
 description = "Django file upload and download manager."
 authors = ["Luke Shiner <luke@lukeshiner.com>"]
 license = "MIT"
