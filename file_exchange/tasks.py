@@ -10,11 +10,11 @@ from django.utils import timezone
 from file_exchange import models
 
 
-@shared_task  # type: ignore
+@shared_task
 def create_file_download(app_label: str, model_name: str, instance_id: int) -> None:
     """Task for creating file downloads."""
     model: Type[models.FileDownload] = apps.get_model(app_label, model_name)
-    download_instance: models.FileDownload = model.objects.get(id=instance_id)
+    download_instance: models.FileDownload = model.objects.get(id=instance_id)  # type: ignore[misc]
     try:
         with transaction.atomic():
             download_instance.pre_generation()

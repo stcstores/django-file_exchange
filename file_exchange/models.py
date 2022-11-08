@@ -24,10 +24,10 @@ class FileDownloadManager(BaseFileExchangeManager):
         self, *args: Any, **kwargs: Any
     ) -> Tuple[AsyncResult, models.Model]:
         """Create a missing information export."""
-        instance: FileDownload = self.create(*args, **kwargs)
+        instance: models.Model = self.create(*args, **kwargs)
         task = tasks.create_file_download.delay(
             app_label=self.model._meta.app_label,
-            model_name=self.model._meta.model_name,
+            model_name=str(self.model._meta.model_name),
             instance_id=instance.pk,
         )
         return task, instance
