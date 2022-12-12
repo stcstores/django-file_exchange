@@ -2,8 +2,9 @@
 
 from typing import Any, Dict, Optional
 
-from django.db.models import Model
 from django.views.generic import TemplateView
+
+from file_exchange import models
 
 
 class DownloadFileView(TemplateView):
@@ -25,7 +26,7 @@ class DownloadFileView(TemplateView):
 class FileDownloadStatusView(TemplateView):
     """View for retrieving the status of a file download."""
 
-    model: Optional[Model] = None
+    model: Optional[models.FileDownload] = None
     template_name = "file_exchange/download_status_display.html"
 
     def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
