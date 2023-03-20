@@ -977,14 +977,14 @@ testing = ["fields", "hunter", "process-tests", "pytest-xdist", "six", "virtuale
 
 [[package]]
 name = "pytest-djangoapp"
-version = "1.0.0"
+version = "1.1.0"
 description = "Nice pytest plugin to help you with Django pluggable application testing."
 category = "dev"
 optional = false
 python-versions = "*"
 files = [
-    {file = "pytest-djangoapp-1.0.0.tar.gz", hash = "sha256:dd3f7dfb7688fe22bc92d7b6eedd108a3b8f86e47720c9558c7d8847a9ff4eb6"},
-    {file = "pytest_djangoapp-1.0.0-py3-none-any.whl", hash = "sha256:4f1b6c477ad8303025b5168646e8ff96cebad6da3abc7608d23984ad167cb283"},
+    {file = "pytest-djangoapp-1.1.0.tar.gz", hash = "sha256:d19e3a1c790eb9c1ebdc4199c25bde2c352297b9dab400b26c2f02d469e4ab52"},
+    {file = "pytest_djangoapp-1.1.0-py3-none-any.whl", hash = "sha256:6c17d963c8373f9e182c657e0df18feed120c9a3aa38f7a686617f6f4f6bf603"},
 ]
 
 [package.dependencies]
