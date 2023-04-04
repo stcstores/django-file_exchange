@@ -196,14 +196,14 @@ zstd = ["zstandard"]
 
 [[package]]
 name = "celery-types"
-version = "0.14.0"
+version = "0.15.0"
 description = "Type stubs for Celery and its related packages"
 category = "dev"
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
-    {file = "celery-types-0.14.0.tar.gz", hash = "sha256:397bd3c7fc38c0718220da75ce33087894e5d340c293792de9cfe39b6f686789"},
-    {file = "celery_types-0.14.0-py3-none-any.whl", hash = "sha256:ba36dddad281b55c1596a4e0f84952b24158900d0e30c5888bb458c60d7f9b18"},
+    {file = "celery-types-0.15.0.tar.gz", hash = "sha256:806a5a62aeeebc59f20d96fb075b1c1fe28a31bfc6cb57ae9b4e2e4cceb38f88"},
+    {file = "celery_types-0.15.0-py3-none-any.whl", hash = "sha256:1bcdd44614248cca1ac962017cf76392e16a86e2f9a0404e683063fe4e6a10b1"},
 ]
 
 [package.dependencies]
