@@ -14,7 +14,7 @@ from file_exchange import models
 def create_file_download(app_label: str, model_name: str, instance_id: int) -> None:
     """Task for creating file downloads."""
     model: Type[models.FileDownload] = apps.get_model(app_label, model_name)
-    download_instance: models.FileDownload = model.objects.get(id=instance_id)
+    download_instance: models.FileDownload = model.objects.get(pk=instance_id)
     try:
         with transaction.atomic():
             download_instance.pre_generation()
