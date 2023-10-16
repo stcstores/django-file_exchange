@@ -152,7 +152,7 @@ def test_pre_generation_method_is_called(celery_session_worker):
             instance,
         ) = testapp_models.FileDownloadWithPreGenerationMethod.objects.create_download()
         task.get()
-        assert instance.pre_generation.called_once()
+        instance.pre_generation.assert_called_once()
 
 
 def test_post_generation_method_is_called(celery_session_worker):
@@ -166,4 +166,4 @@ def test_post_generation_method_is_called(celery_session_worker):
             testapp_models.FileDownloadWithPostGenerationMethod.objects.create_download()
         )
         task.get()
-        assert instance.post_generation.called_once()
+        instance.post_generation.assert_called_once()
