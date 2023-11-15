@@ -37,10 +37,10 @@ jobs:
           black --check .
       - name: Test with pytest
         run: |
-          pytest -sv
+          pytest -sv --cov-report lcov
       - name: Push to Coveralls
         if: ${{ matrix.os == 'ubuntu-latest' }}
         continue-on-error: true
-        uses: AndreMiras/coveralls-python-action@develop
+        uses: coverallsapp/github-action@v2
         with:
           github-token: ${{ github.token }}
