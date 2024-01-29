@@ -1,4 +1,5 @@
 """App config for the File Exchange app."""
+
 from django.apps import AppConfig
 
 

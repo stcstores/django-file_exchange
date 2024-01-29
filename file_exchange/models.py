@@ -1,4 +1,5 @@
 """Models for the File Exchange app."""
+
 from typing import Any, Tuple
 
 from celery.result import AsyncResult
