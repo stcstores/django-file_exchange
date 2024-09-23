@@ -1058,13 +1058,13 @@ dev = ["argcomplete", "attrs (>=19.2)", "hypothesis (>=3.56)", "mock", "pygments
 
 [[package]]
 name = "pytest-celery"
-version = "1.1.2"
+version = "1.1.3"
 description = "Pytest plugin for Celery"
 optional = false
 python-versions = "<4.0,>=3.8"
 files = [
-    {file = "pytest_celery-1.1.2-py3-none-any.whl", hash = "sha256:e117cf2aa5164f99d7ac8296bd3dee16413faa0153d9b5de2c9f9242c60f350b"},
-    {file = "pytest_celery-1.1.2.tar.gz", hash = "sha256:b02cfab5775dd74af99e03ab963047fe1d980dc40f1da19934bf1142d11fa398"},
+    {file = "pytest_celery-1.1.3-py3-none-any.whl", hash = "sha256:4cdb5f658dc472509e8be71f745d26bcb8246397661534f5709d2a55edc43286"},
+    {file = "pytest_celery-1.1.3.tar.gz", hash = "sha256:ac7eee546b4d9fb5c742eaaece98187f1f5e5f5622fbaa8e7729bb46923c54fc"},
 ]
 
 [package.dependencies]
@@ -1073,7 +1073,7 @@ debugpy = ">=1.8.5,<2.0.0"
 docker = ">=7.1.0,<8.0.0"
 psutil = ">=6.0.0"
 pytest-docker-tools = ">=3.1.3"
-setuptools = ">=74.1.2"
+setuptools = ">=75.1.0"
 tenacity = ">=9.0.0"
 
 [package.extras]
