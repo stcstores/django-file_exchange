@@ -1,0 +1,5 @@
+[pydocstyle]
+
+add-ignore = D105
+match = (?!test).*\.py
+match-dir = (?!migrations).*
